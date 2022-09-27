@@ -15,8 +15,8 @@ class CreateTarificationsTable extends Migration
     {
         Schema::create('tarifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('duree_formation_id');
-            $table->foreignId('specialite_id');
+            $table->foreignId('duree_formation_id')->constrained();
+            $table->foreignId('specialite_id')->constrained();
             $table->double('prix');
         });
 

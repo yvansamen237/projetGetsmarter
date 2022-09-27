@@ -14,8 +14,8 @@ class CreateFormationSpecialiteTable extends Migration
     public function up()
     {
         Schema::create('formation_specialite', function (Blueprint $table) {
-            $table->foreignId('formation_id');
-            $table->foreignId('specialite_id');
+            $table->foreignId('formation_id')->constrained();
+            $table->foreignId('specialite_id')->constrained();
         });
 
         Schema::enableForeignKeyConstraints();

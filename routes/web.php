@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Filiere;
+use App\Models\Specialite;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/specialites', function () {
+    return Specialite::with('filiere')->paginate(5);
 });

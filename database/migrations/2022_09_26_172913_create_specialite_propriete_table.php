@@ -14,8 +14,8 @@
         public function up()
         {
             Schema::create('specialite_propriete', function (Blueprint $table) {
-                $table->foreignId('specialite_id');
-                $table->foreignId('propriete_specialite_id');
+                $table->foreignId('specialite_id')->constrained();
+                $table->foreignId('propriete_specialite_id')->constrained();
             });
 
             Schema::enableForeignKeyConstraints();

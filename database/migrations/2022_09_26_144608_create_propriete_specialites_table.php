@@ -17,7 +17,7 @@ class CreateProprieteSpecialitesTable extends Migration
             $table->id();
             $table->string('nom');
             $table->boolean('estObligatoire')->default(1);
-            $table->foreignId('filiere_id');
+            $table->foreignId('filiere_id')->constrained();
         });
 
         Schema::enableForeignKeyConstraints();

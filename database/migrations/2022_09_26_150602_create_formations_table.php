@@ -17,9 +17,9 @@ class CreateFormationsTable extends Migration
             $table->id();
             $table->dateTime('dateDebut');
             $table->dateTime('dateFin');
-            $table->foreignId('etudiant_id');
-            $table->foreignId('user_id');
-            $table->foreignId('statut_formation_id');
+            $table->foreignId('etudiant_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('statut_formation_id')->constrained();
         });
 
         Schema::enableForeignKeyConstraints();

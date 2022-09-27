@@ -16,10 +16,14 @@ class CreateSpecialitesTable extends Migration
         Schema::create('specialites', function (Blueprint $table) {
             $table->id();
             $table->string('matricule');
+            $table->string('nom');
             $table->string('imageUrl');
             $table->boolean('estDisponible')->default(1);
+            $table->foreignId('filiere_id')->constrained();
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -29,6 +33,9 @@ class CreateSpecialitesTable extends Migration
      */
     public function down()
     {
+        Schema::table('specialites', function (Blueprint $table) {
+            $table->dropForeign('filiere_id');
+        });
         Schema::dropIfExists('specialites');
     }
 }
