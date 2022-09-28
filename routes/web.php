@@ -2,7 +2,10 @@
 
 use App\Models\Filiere;
 use App\Models\Specialite;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Livewire\Utilisateurs;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +18,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Le groupe des routes relatives aux administrateurs uniquement
+Route::group([
+    "middleware" => ["auth", "auth.admin"],
+    'as' => 'admin.'
+], function () {
+
+    Route::group([
+        "prefix" => "habilitations",
+        'as' => 'habilitations.'
+    ], function () {
+
+        Route::get("/utilisateurs", [Utilisateurs::class, 'index'])->name("users.index");
+        //Route::get("/rolesetpermissions", [UserController::class, "index"])->name("rolespermissions.index");
+        //
+
+    });
+
+    // Route::group([
+    //     "prefix" => "gestarticles",
+    //     'as' => 'gestarticles.'
+    // ], function () {
+
+    //     Route::get("/types", TypeArticleComp::class)->name("types");
+    //     Route::get("/articles", ArticleComp::class)->name("articles");
+    //     Route::get("/articles/{articleId}/tarifs", TarifComp::class)->name("articles.tarifs");
+    // });
 });
-Route::get('/specialites', function () {
-    return Specialite::with('filiere')->paginate(5);
-});
+
+// Route::group([
+//     "middleware" => ["auth", "auth.employe"],
+//     'as' => 'employe.'
+// ], function () {
+//     Route::get("/clients", clientComp::class)->name("clients.index");
+// });
+
+
+
+
+
+// Route::get('/habilitations/utilisateurs', [App\Http\Controllers\UserController::class, 'index'])->name('utilisateurs')->middleware("can: auth.admin");
