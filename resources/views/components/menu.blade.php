@@ -54,17 +54,17 @@
                             <p>Utilisateurs</p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="" class="nav-link">
                             <i class="nav-icon fas fa-fingerprint"></i>
                             <p>Roles et permissions</p>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
-            <li class="nav-item ">
-                <a href="#" class="nav-link ">
+            <li class="nav-item {{ setMenuClass('admin.gestarticles.', 'menu-open') }}">
+                <a href="#" class="nav-link {{ setMenuClass('admin.gestarticles.', 'active') }}">
                     <i class="nav-icon fas fa-cogs"></i>
                     <p>
                         Gestion specialites
@@ -73,7 +73,8 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="" class="nav-link ">
+                        <a href="{{ route('admin.gestarticles.types') }}"
+                            class="nav-link {{ setMenuClass('admin.gestarticles.types', 'active') }}">
                             <i class="nav-icon far fa-circle"></i>
                             <p>Filieres</p>
                         </a>

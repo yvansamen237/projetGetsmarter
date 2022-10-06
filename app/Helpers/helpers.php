@@ -3,11 +3,11 @@
 use Illuminate\Support\Str;
 
 
-// define("PAGELIST", "liste");
-// define("PAGECREATEFORM", "create");
-// define("PAGEEDITFORM", "edit");
+define("PAGELIST", "liste");
+define("PAGECREATEFORM", "create");
+define("PAGEEDITFORM", "edit");
 
-// define("DEFAULTPASSOWRD", "password");
+define("DEFAULTPASSOWRD", "password");
 
 
 

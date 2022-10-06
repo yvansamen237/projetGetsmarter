@@ -2,10 +2,12 @@
 
 use App\Models\Filiere;
 use App\Models\Specialite;
+use App\Http\Livewire\Utilisateurs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\TypeArticleComp;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Livewire\Utilisateurs;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,21 +37,21 @@ Route::group([
         'as' => 'habilitations.'
     ], function () {
 
-        Route::get("/utilisateurs", [Utilisateurs::class, 'index'])->name("users.index");
+        Route::get("/utilisateurs", Utilisateurs::class)->name("users.index");
         //Route::get("/rolesetpermissions", [UserController::class, "index"])->name("rolespermissions.index");
         //
 
     });
 
-    // Route::group([
-    //     "prefix" => "gestarticles",
-    //     'as' => 'gestarticles.'
-    // ], function () {
+    Route::group([
+        "prefix" => "gestarticles",
+        'as' => 'gestarticles.'
+    ], function () {
 
-    //     Route::get("/types", TypeArticleComp::class)->name("types");
-    //     Route::get("/articles", ArticleComp::class)->name("articles");
-    //     Route::get("/articles/{articleId}/tarifs", TarifComp::class)->name("articles.tarifs");
-    // });
+        Route::get("/types", TypeArticleComp::class)->name("types");
+        // Route::get("/articles", ArticleComp::class)->name("articles");
+        // Route::get("/articles/{articleId}/tarifs", TarifComp::class)->name("articles.tarifs");
+    });
 });
 
 // Route::group([

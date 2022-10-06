@@ -30,4 +30,10 @@ class Specialite extends Model
     {
         return $this->belongsToMany(ProprieteSpecialite::class, 'formation_specialite', 'specialite_id', 'propriete_specialite_id');
     }
+
+
+    public function specialite_proprietes()
+    {
+        return $this->hasMany(ArticlePropriete::class);
+    }
 }

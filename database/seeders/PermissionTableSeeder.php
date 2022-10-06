@@ -16,17 +16,17 @@ class PermissionTableSeeder extends Seeder
     {
         //
         DB::table("permissions")->insert([
-            ["nom" => "ajouter un client"],
-            ["nom" => "consulter un client"],
-            ["nom" => "editer un client"],
+            ["nom" => "ajouter un etudiant"],
+            ["nom" => "consulter un etudiant"],
+            ["nom" => "editer un etudiant"],
 
-            ["nom" => "ajouter une location"],
-            ["nom" => "consulter une location"],
-            ["nom" => "editer une location"],
+            ["nom" => "ajouter une formation"],
+            ["nom" => "consulter une formation"],
+            ["nom" => "editer une formation"],
 
-            ["nom" => "ajouter un article"],
-            ["nom" => "consulter un article"],
-            ["nom" => "editer un article"]
+            ["nom" => "ajouter une specialite"],
+            ["nom" => "consulter une specialite"],
+            ["nom" => "editer une specialite"]
         ]);
     }
 }
